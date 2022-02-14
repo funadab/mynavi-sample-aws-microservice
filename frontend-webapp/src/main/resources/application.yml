@@ -4,3 +4,4 @@ spring:
 server:
   servlet:
     context-path: /frontend
+  port: 8082

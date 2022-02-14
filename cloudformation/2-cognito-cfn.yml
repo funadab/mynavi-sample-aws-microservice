@@ -95,9 +95,9 @@ Resources:
       RefreshTokenValidity: 30
       UserPoolId : !Ref MynaviSampleUserPool
       CallbackURLs:
-        - !If ["ProductionResources", "https://xxxx/login/oauth2/code/cognito",  !If ["StagingResources", "https://xxxx/login/oauth2/code/cofnito", "http://localhost:8080/frontend/login/oauth2/code/cognito"]]
+        - !If ["ProductionResources", "https://xxxx/login/oauth2/code/cognito",  !If ["StagingResources", "https://xxxx/login/oauth2/code/cofnito", "http://localhost:8082/frontend/login/oauth2/code/cognito"]]
       LogoutURLs:
-        - !If ["ProductionResources", "https://xxxx/",  !If ["StagingResources", "https://xxxx/", "http://localhost:8080/frontend"]]
+        - !If ["ProductionResources", "https://xxxx/",  !If ["StagingResources", "https://xxxx/", "http://localhost:8082/frontend"]]
       AllowedOAuthFlows:
         - code
       AllowedOAuthScopes:
@@ -114,7 +114,7 @@ Resources:
   MynaviSampleUserPoolDomain:
     Type: AWS::Cognito::UserPoolDomain
     Properties:
-      Domain: debugroom-mynavi-sample-microservice-1
+      Domain: debugroom-mynavi-sample-microservice-1-1
       UserPoolId: !Ref MynaviSampleUserPool
 
   MynaviSampleIdentityPool:
@@ -220,7 +220,7 @@ Outputs:
       Name: !Sub ${VPCName}-Cognito-${EnvType}-AppClientId
   MynaviSampleRedirectUri:
     Description: RedirectUri
-    Value: !If ["ProductionResources", "https://xxxx/login/oauth2/code/cognito",  !If ["StagingResources", "https://xxxx/login/oauth2/code/cofnito", "http://localhost:8080/frontend/login/oauth2/code/cognito"]]
+    Value: !If ["ProductionResources", "https://xxxx/login/oauth2/code/cognito",  !If ["StagingResources", "https://xxxx/login/oauth2/code/cofnito", "http://localhost:8082/frontend/login/oauth2/code/cognito"]]
     Export:
       Name: !Sub ${VPCName}-Cognito-${EnvType}-RedirectUri
   MynaviSampleJwkSetUri:
