@@ -3,10 +3,10 @@ package org.debugroom.mynavi.sample.aws.microservice.frontend.webapp.app.web.int
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
-import java.util.Optional;
-
-import com.amazonaws.xray.AWSXRay;
-import com.amazonaws.xray.entities.Segment;
+//import java.util.Optional;
+//
+//import com.amazonaws.xray.AWSXRay;
+//import com.amazonaws.xray.entities.Segment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -43,18 +43,18 @@ public class AuditLoggingInterceptor extends HandlerInterceptorAdapter {
         Log log = Log.builder()
                 .userId(userId)
                 .createdAt(DateStringUtil.now())
-                .traceId(getTraceId())
+//                .traceId(getTraceId())
                 .build();
 
         logRepository.save(log);
     }
 
-    private String getTraceId(){
-        Optional<Segment> segment = AWSXRay.getCurrentSegmentOptional();
-        if (segment.isPresent()){
-            return segment.get().getTraceId().toString();
-        }
-        return null;
-    }
+//    private String getTraceId(){
+//        Optional<Segment> segment = AWSXRay.getCurrentSegmentOptional();
+//        if (segment.isPresent()){
+//            return segment.get().getTraceId().toString();
+//        }
+//        return null;
+//    }
 
 }

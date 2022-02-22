@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+//import com.amazonaws.xray.spring.aop.XRayEnabled;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
@@ -19,7 +19,7 @@ import org.debugroom.mynavi.sample.aws.microservice.common.model.UserResource;
 import org.debugroom.mynavi.sample.aws.microservice.frontend.webapp.domain.repository.UserResourceRepository;
 
 
-@XRayEnabled
+//@XRayEnabled
 @Service
 public class OrchestrationServiceImpl implements OrchestrationService{
 

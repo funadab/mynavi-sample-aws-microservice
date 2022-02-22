@@ -2,7 +2,7 @@ package org.debugroom.mynavi.sample.aws.microservice.frontend.webapp.app.web;
 
 import javax.servlet.http.HttpSession;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
+//import com.amazonaws.xray.spring.aop.XRayEnabled;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,7 +19,7 @@ import org.debugroom.mynavi.sample.aws.microservice.frontend.webapp.domain.servi
 import org.debugroom.mynavi.sample.aws.microservice.frontend.webapp.app.model.PortalInformation;
 import org.debugroom.mynavi.sample.aws.microservice.frontend.webapp.app.web.security.CustomUserDetails;
 
-@XRayEnabled
+//@XRayEnabled
 @Controller
 public class SampleController {
 
@@ -72,13 +72,13 @@ public class SampleController {
                         oAuth2AuthenticationToken.getName()));
 
         model.addAttribute("accessToken", oAuth2AuthorizedClient.getAccessToken());
-        try{
-            orchestrationService.addTokens(oidcUser.getIdToken(), oAuth2AuthorizedClient.getAccessToken(),
-                    oAuth2AuthorizedClient.getRefreshToken());
-        }catch (BusinessException e){
-            // If the Business Exception occur, You should transit to Error page.
-            return "error";
-        }
+//        try{
+//            orchestrationService.addTokens(oidcUser.getIdToken(), oAuth2AuthorizedClient.getAccessToken(),
+//                    oAuth2AuthorizedClient.getRefreshToken());
+//        }catch (BusinessException e){
+//            // If the Business Exception occur, You should transit to Error page.
+//            return "error";
+//        }
         return "oauth2Portal";
     }
 
